@@ -1,1 +1,14 @@
-<p>This is the partial for view 1.</p>
+<div class="container"
+     ng-controller="View1Ctrl">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"
+        ng-repeat="link in ctrl.links">
+      <div class="summary">
+        <a href={{link.url}} target="_blank">{{link.title}}</a>
+      </div>
+      <div class="description">
+        {{link.summary}}
+      </div>
+    </li>
+  </ul>
+</div>

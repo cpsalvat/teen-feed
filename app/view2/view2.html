@@ -1,5 +1,25 @@
-<p>This is the partial for view 2.</p>
-<p>
-  Showing of 'interpolate' filter:
-  {{ 'Current version is v%VERSION%.' | interpolate }}
-</p>
+<div class="container"
+     ng-controller="View2Ctrl">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"
+        ng-repeat="event in ctrl.events">
+      <div class="summary">
+        <a ng-href="{{event.htmlLink}}" target="_blank">
+          {{event.summary}}
+        </a>
+      </div>
+      <div class="details">
+        {{event.date}}
+      </div>
+      <div class="details">
+        {{event.start}} - {{event.end}}
+      </div>
+      <div class="details">
+        <a href={{event.locationLink}} target="_blank">{{event.locationName}}</a>
+      <div class="description">
+        {{event.description}}
+      </div>
+        
+    </li>
+  </ul>
+</div>
