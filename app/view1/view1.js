@@ -5,7 +5,7 @@ angular.module('myApp.view1', ['ngRoute'])
 .config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
     templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl as ctrl'
+    controller: 'View1Ctrl as ctrl',
   });
 }])
 
@@ -13,8 +13,8 @@ angular.module('myApp.view1', ['ngRoute'])
 
 function LinksPageController($scope) {
   // Client ID and API key from the Developer Console
-  var CLIENT_ID = '312112159708-o444s9097t0i3g8u0vlanchbs042i186.apps.googleusercontent.com';
-  var API_KEY = 'AIzaSyBMsiOnBapgsFgythe0ngr_3uuQckjTqjs';
+  var CLIENT_ID = config.CLIENT_ID;
+  var API_KEY = config.API_KEY;
   // Array of API discovery doc URLs for APIs used by the quickstart
   var DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 

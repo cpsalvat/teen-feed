@@ -13,8 +13,8 @@ angular.module('myApp.view2', ['ngRoute'])
 
 function CalendarController($scope) {
   // Client ID and API key from the Developer Console
-  var CLIENT_ID = '312112159708-o444s9097t0i3g8u0vlanchbs042i186.apps.googleusercontent.com';
-  var API_KEY = 'AIzaSyBMsiOnBapgsFgythe0ngr_3uuQckjTqjs';
+  var CLIENT_ID = config.CLIENT_ID;
+  var API_KEY = config.API_KEY;
   var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
   // Authorization scopes required by the API; multiple scopes can be
   // included, separated by spaces.
