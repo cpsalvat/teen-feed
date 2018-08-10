@@ -1,17 +1,17 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.help', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl as ctrl',
+  $routeProvider.when('/help', {
+    templateUrl: 'help/help.html',
+    controller: 'HelpCtrl as ctrl',
   });
 }])
 
-.controller('View1Ctrl', ['$scope', LinksPageController]);
+.controller('HelpCtrl', ['$scope', HelpPageController]);
 
-function LinksPageController($scope) {
+function HelpPageController($scope) {
   // Client ID and API key from the Developer Console
   var CLIENT_ID = config.CLIENT_ID;
   var API_KEY = config.API_KEY;
@@ -29,23 +29,23 @@ function LinksPageController($scope) {
   this.listLinks = function() {
     gapi.client.sheets.spreadsheets.values.get({
       spreadsheetId: LINKS_SPREADSHEET_ID,
-      range: 'Links!A2:C',
+      range: 'Help!A2:C',
     }).then(function(response) {
       var range = response.result;
       if (range.values.length > 0) {
         for (var i = 0; i < range.values.length; i++) {
           var row = range.values[i];
-          // Print columns A and E, which correspond to indices 0 and 4.
           this.links.push({
             title: row[0],
             url: row[1],
             summary: row[2]
           });
-          this.scope.$apply();
         }
+        this.scope.$apply();
       } 
     }.bind(this));
   }
+  
 
   this.handleClientLoad = function() {
     gapi.load('client:auth2', this.initClient.bind(this));

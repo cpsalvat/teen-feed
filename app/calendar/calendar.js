@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.calendar', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view2', {
-    templateUrl: 'view2/view2.html',
-    controller: 'View2Ctrl as ctrl'
+  $routeProvider.when('/calendar', {
+    templateUrl: 'calendar/calendar.html',
+    controller: 'CalendarCtrl as ctrl'
   });
 }])
 
-.controller('View2Ctrl', ['$scope', CalendarController]);
+.controller('CalendarCtrl', ['$scope', CalendarController]);
 
 function CalendarController($scope) {
   // Client ID and API key from the Developer Console
@@ -22,10 +22,6 @@ function CalendarController($scope) {
   // Calender ID defined in the calendar settings
   var CAL_ID = 'cj6g2i651oarhrf56uecbuhtu0@group.calendar.google.com';
   var MAP_SEARCH_URL =  "https://www.google.com/maps/search/?api=1&query=";
-
-  var MONTH_LIST = 
-      ['January', 'February', 'March', 'April', 'May', 'June', 'July',
-       'August', 'September', 'October', 'November'];
   
   this.events = [];
   this.scope = $scope;
